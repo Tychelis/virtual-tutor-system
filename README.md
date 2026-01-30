@@ -1,4 +1,4 @@
-# Virtual Tutor System (Phase 2)
+# Virtual Tutor System
 
 An intelligent AI tutoring system featuring real-time digital avatar interactions, RAG-enhanced conversations, and multi-user concurrent support. Built with React, Flask, WebRTC, and LangGraph, the system delivers low-latency streaming responses with synchronized lip-sync animations.
 
