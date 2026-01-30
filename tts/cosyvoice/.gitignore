@@ -1,0 +1,25 @@
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+
+# 忽略 CosyVoice 目录中的所有内容
+CosyVoice/*
+# 但保留 CosyVoice 目录
+!CosyVoice/
+# 保留特定文件
+!CosyVoice/ref.wav
+!CosyVoice/cosy_05b.py
+!CosyVoice/cosy_300m.py
+!CosyVoice/server.py
+
+# 忽略 output 目录中的所有内容
+output/*
+!output/
+# 保留特定文件
+!output/output_0.5b.wav
+
+# 忽略 logs 目录中的所有内容
+logs/*
+!logs/
+# 保留特定文件
+!logs/rtf_0.5b.txt

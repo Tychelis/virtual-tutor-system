@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>强制刷新</title>
+</head>
+<body>
+    <h1>正在清除缓存并刷新...</h1>
+    <script>
+        // 清除所有缓存
+        if ('caches' in window) {
+            caches.keys().then(names => {
+                names.forEach(name => caches.delete(name));
+            });
+        }
+        
+        // 清除存储
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // 使用时间戳强制刷新
+        const url = new URL(window.location.origin);
+        url.searchParams.set('_t', Date.now());
+        
+        // 立即跳转
+        window.location.replace(url.toString());
+    </script>
+</body>
+</html>

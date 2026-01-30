@@ -1,0 +1,773 @@
+{
+  "questions": 
+     [
+      {
+        "question": "What are the assessment components and their weightings for COMP3331/9331?",
+        "answer": ["Labs 20%", "Assignment 20%", "Mid-term test 20%", "Final Exam 40%", "Hands-on 40%", "Concepts and theory 60%"],
+        "page_ids": [20, 21],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the prerequisites and assumed knowledge for COMP3331/9331?",
+        "answer": ["COMP1927", "COMP2521", "MTRN2500", "COMP9024", "data structures and algorithms", "basic probability theory", "C", "Java", "Python"],
+        "page_ids": [6],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What is the required textbook for the Computer Networks course?",
+        "answer": ["Computer Networking: A Top Down Approach", "Jim Kurose", "Keith Ross", "Addison-Wesley", "Pearson", "8th Edition", "2020"],
+        "page_ids": [7],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the main course aims for COMP3331/9331?",
+        "answer": ["overview of core topics in computer networks", "Internet's architecture and protocols", "network programming", "design and implement network protocols", "evaluate network performance", "prepare for advanced study"],
+        "page_ids": [8],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "How are labs structured in the Computer Networks course?",
+        "answer": ["2-hour lab sessions", "Week 2", "Weeks 2-5, 7-10", "in-person and online labs", "5 Lab Exercises", "2 Problem-based learning sessions", "1 Programming Tutorial", "Wireshark packet sniffer", "ns-2 network simulator"],
+        "page_ids": [12],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What is VLAB and how is it used in the course?",
+        "answer": ["Virtual Labs", "Access CSE lab environment remotely", "VNC", "TigerVNC", "UNSW VPN", "Linux commands"],
+        "page_ids": [13],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the main learning objectives about the Internet in this course?",
+        "answer": ["how the Internet works", "complex global infrastructure", "organising principles behind the Internet", "browse the Web", "TCP/IP", "DNS", "HTTP", "NAT", "VPNs", "802.11"],
+        "page_ids": [25, 26],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What follow-on courses are available after completing COMP3331/9331?",
+        "answer": ["COMP 9334: System Capacity and Planning", "COMP 3441/9441: Security Engineering", "COMP 4336/9336: Mobile Data Networking", "COMP 4337/9337: Securing Fixed and Wireless Networks", "COMP6733: Internet of Things Design Studio"],
+        "page_ids": [27],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the five layers of the Internet protocol stack and their main functions?",
+        "answer": ["application layer", "transport layer", "network layer", "link layer", "physical layer", "supporting network applications", "process-process data transfer", "routing datagrams", "data transfer between neighboring elements", "bits on the wire"],
+        "page_ids": [11],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "How much network capacity is required for circuit switching with 100 users each sending 1 Mbps when active?",
+        "answer": ["100 Mbps", "probability of activity is irrelevant", "100 x 1 Mbps"],
+        "page_ids": [2],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What is the expected aggregate traffic in a packet-switched network with 100 users, each active with probability 0.2 and sending 1 Mbps when active?",
+        "answer": ["20 Mbps", "100 x 0.2 x 1 Mbps"],
+        "page_ids": [3],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What are the three main networking design steps?",
+        "answer": ["Break down the problem into tasks", "Organize these tasks", "Decide who does what"],
+        "page_ids": [5],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What are the main tasks involved in networking to send packets across networks?",
+        "answer": ["Prepare data", "Ensure packets get to destination process", "Deliver packets across global network", "Deliver packets within local network to next hop", "Bits/Packets on wire", "Application", "Transport", "Network", "Datalink", "Physical"],
+        "page_ids": [6],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What are two main benefits of using a layered network model?",
+        "answer": ["makes it easy to introduce new protocols", "prevents technology in one layer from affecting other layers", "provides common abstraction", "modular design"],
+        "page_ids": [14, 23],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What are the potential harmful effects of layering in networks?",
+        "answer": ["duplicate lower-level functionality", "information hiding may hurt performance", "headers start to get large", "layer violations", "TCP + IP + Ethernet headers add up to 54 bytes"],
+        "page_ids": [15],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "Which protocol layers are implemented on routers versus hosts?",
+        "answer": ["routers implement physical, datalink, network layers", "hosts implement all layers", "routers don't support transport layer", "routers participate in global delivery", "hosts have applications"],
+        "page_ids": [17, 18],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What is encapsulation in the context of network protocol layers?",
+        "answer": ["adding headers at each layer", "message becomes segment", "segment becomes datagram", "datagram becomes frame", "Ht", "Hn", "Hl", "lowest level has most packaging"],
+        "page_ids": [22],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "Does queuing delay at a router depend on the length of the outgoing link?",
+        "answer": ["No, it doesn't", "queuing happens because transmission rate is insufficient", "length of link does not typically impact queuing", "transmission rate more important than link length"],
+        "page_ids": [4],
+        "source": "Week1_Introduction.pdf"
+        },
+        {
+        "question": "What support resources are available for students in this course?",
+        "answer": ["Ed Discussions", "cs3331@cse.unsw.edu.au", "consultation hours", "Tuesday", "Zoom", "programming tutorial", "C/Python/Java"],
+        "page_ids": [14, 15],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the consequences of plagiarism in this course?",
+        "answer": ["academic misconduct", "suspension from UNSW", "scholarship students may lose scholarship", "international students may lose visa", "loss of all marks", "publicly accessible code repositories assumed to be plagiarism"],
+        "page_ids": [17, 18],
+        "source": "Course Outline & Logistics.pdf"
+        },
+        {
+        "question": "What are the main differences between packet switching and circuit switching?",
+        "answer": ["packet switching uses statistical multiplexing", "circuit switching reserves dedicated resources", "packet switching allows resource sharing", "circuit switching has guaranteed performance", "packet switching can have congestion and delays", "circuit switching maintains connection state"],
+        "page_ids": [36, 37, 68, 74],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the four sources of packet delay in networks?",
+        "answer": ["nodal processing delay", "queueing delay", "transmission delay", "propagation delay"],
+        "page_ids": [90, 91],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the main types of access network technologies for connecting homes to the Internet?",
+        "answer": ["DSL", "cable-based access", "fiber to the home", "wireless access networks", "satellite"],
+        "page_ids": [21, 22, 24, 25, 26, 28],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the key components that make up the Internet infrastructure?",
+        "answer": ["hosts", "routers", "communication links", "packet switches", "ISPs", "protocols"],
+        "page_ids": [5, 8],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What determines the throughput in a network connection?",
+        "answer": ["bottleneck link", "minimum capacity along the path", "link capacity", "end-to-end path constraints"],
+        "page_ids": [106, 107, 108],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the main types of physical media used in computer networks?",
+        "answer": ["twisted pair copper", "coaxial cable", "fiber optic cable", "wireless radio", "satellite"],
+        "page_ids": [32, 33, 34],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the two key functions performed by the network core?",
+        "answer": ["forwarding", "routing"],
+        "page_ids": [44],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What is statistical multiplexing and why is it used in packet switching?",
+        "answer": ["sharing total capacity among flows", "assumption that not all flows burst simultaneously", "more efficient resource utilization", "allows more users on network"],
+        "page_ids": [51, 52, 54, 68],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the different tiers in the Internet's hierarchical structure?",
+        "answer": ["Tier-1 ISPs", "regional ISPs", "access ISPs", "content provider networks", "Internet exchange points"],
+        "page_ids": [77, 82, 83, 84, 85],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What causes packet loss in networks?",
+        "answer": ["buffer overflow", "queue capacity exceeded", "arrival rate exceeds output link capacity", "finite buffer capacity"],
+        "page_ids": [89, 105],
+        "source": "Week1_Introduction to Computer Networks.pdf"
+        },
+        {
+        "question": "What are the key differences between client-server and peer-to-peer network architectures?",
+        "answer": ["Client-server: always-on server, permanent IP address, clients contact server, clients may be intermittently connected", "Peer-to-peer: no always-on server, arbitrary end systems communicate directly, self scalability, peers intermittently connected"],
+        "page_ids": [6, 7],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What are the main HTTP request methods and their purposes?",
+        "answer": ["GET: requests object from server", "POST: sends user input to server in entity body", "HEAD: requests headers only", "PUT: uploads file to server", "DELETE: deletes resource on server"],
+        "page_ids": [27],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What services does TCP provide compared to UDP for network applications?",
+        "answer": ["TCP: reliable transport, flow control, congestion control, connection-oriented", "UDP: unreliable data transfer, no flow control, no congestion control, no connection setup"],
+        "page_ids": [14],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "How does persistent HTTP improve performance compared to non-persistent HTTP?",
+        "answer": ["Persistent HTTP: server leaves TCP connection open, multiple objects sent over same connection, allows TCP to learn accurate RTT estimate", "Non-persistent HTTP: at most one object per TCP connection, requires multiple connections"],
+        "page_ids": [48, 49],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What are HTTP cookies and what are their main components?",
+        "answer": ["Cookie header line in HTTP response message", "Cookie header line in HTTP request message", "Cookie file kept on user's host", "Back-end database at web site"],
+        "page_ids": [32, 33],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "How do web caches and proxy servers improve HTTP performance?",
+        "answer": ["Satisfy client requests without involving origin server", "Reduce response time for client requests", "Reduce traffic on institution's access link", "Cache acts as both client and server"],
+        "page_ids": [52, 53],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What are the main components of the email system architecture?",
+        "answer": ["User agents", "Mail servers", "Simple Mail Transfer Protocol SMTP"],
+        "page_ids": [76, 77],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What do common HTTP response status codes indicate?",
+        "answer": ["200 OK: request succeeded", "301 Moved Permanently: object moved to new location", "400 Bad Request: request not understood", "404 Not Found: document not found", "505 HTTP Version Not Supported"],
+        "page_ids": [29],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "What transport service requirements do different network applications have?",
+        "answer": ["Data integrity: some apps require 100% reliable transfer, others tolerate loss", "Timing: some apps require low delay", "Throughput: some require minimum throughput, others are elastic", "Security: encryption and data integrity"],
+        "page_ids": [12, 13],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+        "question": "How does SMTP protocol work for email message transfer?",
+        "answer": ["Uses TCP port 25", "Three phases: handshaking, message transfer, closure", "Command/response interaction with ASCII text commands", "Direct transfer from sending server to receiving server"],
+        "page_ids": [78, 80],
+        "source": "Week2_Application Layer (Principles, Web, Email).pdf"
+        },
+        {
+      "question": "What are the key services provided by the Domain Name System (DNS)?",
+      "answer": ["hostname", "to", "IP", "address", "translation", "host", "aliasing", "mail", "server", "aliasing", "load", "distribution"],
+      "page_ids": [5, 6],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "Why is DNS implemented in a distributed and hierarchical manner?",
+      "answer": ["scalability", "fault", "tolerance", "autonomous", "administration", "low", "latency", "reduced", "traffic"],
+      "page_ids": [6, 7, 8],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What is the difference between iterative and recursive DNS queries?",
+      "answer": ["iterative", "query", "refers", "client", "to", "other", "servers", "recursive", "query", "resolves", "on", "behalf", "of", "client"],
+      "page_ids": [17, 18],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What types of resource records (RRs) exist in DNS?",
+      "answer": ["A", "NS", "CNAME", "MX"],
+      "page_ids": [20],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What are the main characteristics of Peer-to-Peer (P2P) architectures?",
+      "answer": ["no", "always-on", "server", "self", "scalability", "intermittent", "connectivity", "changing", "IP", "addresses"],
+      "page_ids": [38],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "How does BitTorrent ensure fair file chunk exchange among peers?",
+      "answer": ["tit-for-tat", "top", "four", "senders", "optimistic", "unchoke"],
+      "page_ids": [46, 47],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What is DASH and how does it adapt to changing network conditions?",
+      "answer": ["dynamic", "adaptive", "streaming", "over", "http", "client", "measures", "bandwidth", "requests", "appropriate", "chunk", "rate"],
+      "page_ids": [58, 59],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What are the main roles of Content Distribution Networks (CDNs)?",
+      "answer": ["stream", "content", "scale", "reduce", "latency", "avoid", "congestion", "store", "content", "closer", "to", "users"],
+      "page_ids": [60, 61, 62],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What is the function of a CDN provider’s authoritative DNS name server?",
+      "answer": ["map", "cdn", "queries", "to", "nearest", "cdn", "server"],
+      "page_ids": [64, 66],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What are the basic steps in socket programming using TCP?",
+      "answer": ["create", "socket", "connect", "send", "receive", "close"],
+      "page_ids": [72, 74, 75],
+      "source": "Week3_Application Layer (DNS, P2P, Video Streaming and CDN).pdf"
+    },
+    {
+      "question": "What are the main services provided by the transport layer?",
+      "answer": ["multiplexing", "demultiplexing", "reliable", "data", "transfer", "flow", "control", "congestion", "control"],
+      "page_ids": [2],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What distinguishes TCP from UDP in terms of features?",
+      "answer": ["reliable", "in-order", "delivery", "congestion", "control", "flow", "control", "connection", "setup"],
+      "page_ids": [9],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What is the purpose of sequence numbers in reliable data transfer protocols?",
+      "answer": ["detect", "duplicates", "ensure", "in-order", "delivery", "track", "packets"],
+      "page_ids": [56],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "How does UDP handle multiplexing and demultiplexing?",
+      "answer": ["destination", "IP", "address", "destination", "port", "number"],
+      "page_ids": [18],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What components are essential for a reliable data transfer solution?",
+      "answer": ["checksums", "timers", "acknowledgments", "sequence", "numbers", "sliding", "windows"],
+      "page_ids": [82],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What is the role of the transport layer in relation to the application and network layers?",
+      "answer": ["logical", "communication", "between", "application", "processes", "on", "different", "hosts"],
+      "page_ids": [6],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What are the trade-offs of using UDP instead of TCP?",
+      "answer": ["no", "connection", "setup", "fast", "transmission", "no", "congestion", "control", "may", "lose", "packets"],
+      "page_ids": [29],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What happens in rdt2.0 when ACK/NAK is corrupted?",
+      "answer": ["sender", "retransmits", "packet", "possible", "duplicate", "handled", "by", "sequence", "numbers"],
+      "page_ids": [55],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "Why is rdt3.0 needed instead of rdt2.2?",
+      "answer": ["handles", "packet", "loss", "using", "timeouts", "in", "addition", "to", "corruption", "detection"],
+      "page_ids": [61],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+    {
+      "question": "What is the main difference between Go-Back-N and Selective Repeat protocols?",
+      "answer": ["go-back-n", "uses", "cumulative", "acks", "selective", "repeat", "acks", "individually", "buffers", "out-of-order", "packets"],
+      "page_ids": [76],
+      "source": "Week4_Transport Layer Part 1 .pdf"
+    },
+{
+      "question": "What are the key characteristics of TCP as a transport protocol?",
+      "answer": ["reliable", "in-order", "byte", "stream", "full", "duplex", "flow", "controlled", "connection-oriented"],
+      "page_ids": [3],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What fields are included in a TCP segment header?",
+      "answer": ["source", "port", "destination", "port", "sequence", "number", "acknowledgment", "number", "checksum", "flags", "window", "size"],
+      "page_ids": [5],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "How does TCP use sequence and acknowledgment numbers for reliable data transfer?",
+      "answer": ["sequence", "number", "acknowledgment", "number", "byte", "offset", "next", "expected"],
+      "page_ids": [16],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What is the purpose of the TCP three-way handshake?",
+      "answer": ["establish", "connection", "synchronize", "sequence", "numbers", "acknowledgment", "SYN", "ACK"],
+      "page_ids": [59],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What is TCP flow control and how is it implemented?",
+      "answer": ["rwnd", "receive", "window", "buffer", "space", "receiver", "advertises", "sender", "limits"],
+      "page_ids": [49, 50],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What are the phases of TCP congestion control?",
+      "answer": ["slow", "start", "congestion", "avoidance", "fast", "retransmit", "fast", "recovery"],
+      "page_ids": [97, 104],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "How does TCP estimate the round trip time (RTT) for setting timeouts?",
+      "answer": ["sampleRTT", "estimatedRTT", "deviation", "DevRTT", "timeoutInterval", "EWMA"],
+      "page_ids": [31, 33],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What causes TCP congestion collapse and how does it manifest?",
+      "answer": ["packet", "loss", "queueing", "delay", "retransmission", "throughput", "collapse"],
+      "page_ids": [74, 80],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What is the AIMD algorithm used in TCP congestion control?",
+      "answer": ["additive", "increase", "multiplicative", "decrease", "cwnd", "probing", "bandwidth"],
+      "page_ids": [96, 97],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+      "question": "What is the role of the receiver window and congestion window in controlling the TCP sending rate?",
+      "answer": ["receiver", "window", "rwnd", "congestion", "window", "cwnd", "minimum", "bytes", "in-flight"],
+      "page_ids": [89],
+      "source": "Week5_Transport Layer (Continued).pdf"
+    },
+    {
+    "question": "What are the two key functions of the network layer?",
+    "answer": ["forwarding", "routing"],
+    "page_ids": [7],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What does the TTL field in an IP header prevent?",
+    "answer": ["loops", "forwarding loops", "packets cycling forever"],
+    "page_ids": [24],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What does CIDR stand for in IP addressing?",
+    "answer": ["Classless InterDomain Routing"],
+    "page_ids": [45],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What are the four main steps in the DHCP process?",
+    "answer": ["DHCP discover", "DHCP offer", "DHCP request", "DHCP ack"],
+    "page_ids": [58],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "How many IP addresses are in a /24 subnet?",
+    "answer": ["256"],
+    "page_ids": [39],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What is the Internet's service model called?",
+    "answer": ["best effort"],
+    "page_ids": [12],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What happens when an IP packet is too large for a network link?",
+    "answer": ["fragmentation", "packet is fragmented"],
+    "page_ids": [26],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What routing technique is used when multiple routes match a destination?",
+    "answer": ["longest prefix matching"],
+    "page_ids": [71],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What organization allocates IP address blocks to ISPs?",
+    "answer": ["ICANN", "Internet Corporation for Assigned Names and Numbers"],
+    "page_ids": [73],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What field in the IP header identifies the higher-level protocol?",
+    "answer": ["Protocol field", "Protocol"],
+    "page_ids": [21],
+    "source": "Week7_Network Layer(Data Plane).pdf"
+    },
+    {
+    "question": "What are the two main approaches to structuring network control plane in routing?",
+    "answer": ["per-router control (traditional)", "logically centralized control (software defined networking)"],
+    "page_ids": [3],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What are the main characteristics of Link State routing algorithms?",
+    "answer": ["each node maintains its local link state", "each node floods its local link state to all nodes", "eventually each node learns the entire network topology", "uses Dijkstra's algorithm to compute shortest paths"],
+    "page_ids": [12, 13, 15],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What is the Bellman-Ford equation used in Distance Vector routing?",
+    "answer": ["Dx(y) = minv { cx,v + Dv(y) }", "cost of least-cost path from x to y", "minimum taken over all neighbors v of x"],
+    "page_ids": [32, 33],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What is the count-to-infinity problem in Distance Vector routing?",
+    "answer": ["bad news travels slowly", "routing loops", "slow convergence when link costs increase", "routers may count up to large numbers before converging"],
+    "page_ids": [53, 54],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What is the poisoned reverse technique in Distance Vector routing?",
+    "answer": ["heuristic to avoid count-to-infinity", "if B routes via C to get to A", "B tells C its distance to A is infinite", "prevents C from routing to A via B"],
+    "page_ids": [54, 55],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "How do Link State and Distance Vector algorithms compare in terms of message complexity?",
+    "answer": ["LS: n routers, O(n2) messages sent", "DV: exchange between neighbors", "LS convergence time varies", "DV convergence time varies"],
+    "page_ids": [61],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What are some real protocols that implement Link State and Distance Vector algorithms?",
+    "answer": ["Link State: Open Shortest Path First (OSPF)", "Link State: Intermediate system to intermediate system (IS-IS)", "Distance Vector: Routing Information Protocol (RIP)", "Distance Vector: Interior Gateway Routing Protocol (IGRP-Cisco)", "Distance Vector: Border Gateway Protocol (BGP) - variant"],
+    "page_ids": [62],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What is ICMP and what is it used for?",
+    "answer": ["Internet Control Message Protocol", "used by hosts and routers to communicate network level information", "error reporting: unreachable host, network, port", "echo request/reply used by ping", "works above IP layer"],
+    "page_ids": [67, 68],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "How does Dijkstra's algorithm work in link-state routing?",
+    "answer": ["centralized: network topology and link costs known to all nodes", "computes least cost paths from one node to all other nodes", "iterative: after k iterations, know least cost path to k destinations", "gives forwarding table for that node"],
+    "page_ids": [16, 17],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What are the key differences between data plane and control plane in network layer?",
+    "answer": ["forwarding: move packets from router input to appropriate router output", "routing: determine route taken by packets from source to destination", "data plane: per-packet forwarding", "control plane: network-wide routing decisions"],
+    "page_ids": [3],
+    "source": "Week8_Control Plane (Routing).pdf"
+    },
+    {
+    "question": "What are the three private IP address ranges defined in RFC 1918?",
+    "answer": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"],
+    "page_ids": [3],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What are the main advantages of using Network Address Translation (NAT)?",
+    "answer": ["just one IP address needed from provider ISP for all devices", "can change addresses of host in local network without notifying outside world", "can change ISP without changing addresses of devices in local network", "security: devices inside local net not directly addressable, visible by outside world"],
+    "page_ids": [5],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What are the three solutions mentioned for NAT traversal problems?",
+    "answer": ["Inbound-NAT Statically configure NAT to forward incoming connection requests", "Universal Plug and Play (UPnP) Internet Gateway Device (IGD) Protocol", "relaying"],
+    "page_ids": [10, 11, 12],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What are the main motivations for developing IPv6?",
+    "answer": ["32-bit IPv4 address space would be completely allocated", "speed processing/forwarding: 40-byte fixed length header", "enable different network-layer treatment of flows"],
+    "page_ids": [18],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What features are missing in IPv6 compared to IPv4?",
+    "answer": ["no checksum", "no fragmentation/reassembly", "no options"],
+    "page_ids": [19],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What is tunneling in the context of IPv4 to IPv6 transition?",
+    "answer": ["IPv6 datagram carried as payload in IPv4 datagram among IPv4 routers", "packet within a packet"],
+    "page_ids": [20],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What practical issues does NAT face when modifying packets?",
+    "answer": ["requires recalculation of TCP and IP checksum", "some applications embed IP address or port numbers in their message payloads", "encrypted fields cannot be translated", "applications changing port numbers periodically"],
+    "page_ids": [9],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "According to Google statistics, what percentage of clients access services via IPv6?",
+    "answer": ["30%"],
+    "page_ids": [25, 26],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "How does NAT implement address translation for outgoing datagrams?",
+    "answer": ["replace source IP address, port # of every outgoing datagram to NAT IP address, new port #", "remember every translation pair in NAT translation table", "remote clients/servers will respond using NAT IP address, new port # as destination address"],
+    "page_ids": [6],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What are the controversial aspects of NAT mentioned in the document?",
+    "answer": ["routers should only process up to layer 3", "address shortage should be solved by IPv6", "violates end-to-end argument", "NAT traversal: what if client wants to connect to server behind NAT"],
+    "page_ids": [8],
+    "source": "Week8_Network Layer/ Data Plane (contd.).pdf"
+    },
+    {
+    "question": "What are the main error detection and correction methods used in data link layer protocols?",
+    "answer": ["parity checking", "Internet checksum", "cyclic redundancy check", "CRC", "two-dimensional bit parity", "single bit parity"],
+    "page_ids": [15, 16, 17, 19, 23],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "What are the three broad categories of MAC protocols for multiple access control?",
+    "answer": ["channel partitioning", "random access", "taking turns"],
+    "page_ids": [28],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "What are the key services provided by the data link layer?",
+    "answer": ["framing", "link access", "reliable delivery", "flow control", "error detection", "error correction", "half-duplex", "full-duplex"],
+    "page_ids": [10, 11],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "How does CSMA/CD handle collisions in Ethernet networks?",
+    "answer": ["carrier sense before transmit", "collision detection", "abort transmission", "send jam signal", "binary exponential backoff", "wait random time before retry"],
+    "page_ids": [38, 40, 41],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "What are the advantages and disadvantages of slotted ALOHA protocol?",
+    "answer": ["single active node transmits at full rate", "highly decentralized", "simple", "collisions waste slots", "idle slots", "clock synchronization required", "37% maximum efficiency"],
+    "page_ids": [35, 36],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "What are the key differences between MAC addresses and IP addresses in terms of structure and portability?",
+    "answer": ["MAC addresses are 48-bit flat addresses that are hard-coded and portable", "IP addresses are 32-bit hierarchical addresses that are learned dynamically and not portable", "MAC addresses stay the same as host moves", "IP addresses depend on where the host is attached"],
+    "page_ids": [55, 56],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "How does the ARP protocol work to resolve IP addresses to MAC addresses?",
+    "answer": ["Host broadcasts ARP query containing target IP address", "All nodes on LAN receive ARP query", "Target host replies with ARP response containing its MAC address", "Requesting host adds entry to local ARP table", "ARP table entries have TTL typically 20 minutes"],
+    "page_ids": [57, 58, 59, 60],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+    "question": "What are the main characteristics and advantages of Ethernet switches compared to hubs?",
+    "answer": ["Switches are link-layer devices that store and forward frames", "Each link is its own collision domain with no collisions", "Full duplex communication", "Multiple simultaneous transmissions possible", "Self-learning capability", "Transparent to hosts", "Plug-and-play operation"],
+    "page_ids": [76, 77, 78],
+    "source": "Week9_Data Link Layer.pdf"
+    },
+    {
+      "question": "What are the main components of a wireless network?",
+      "answer": ["wireless hosts", "base station", "wireless link", "wired network infrastructure"],
+      "page_ids": [7, 8, 9, 10],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "How does the infrastructure mode differ from the ad hoc mode in wireless networks?",
+      "answer": ["base station", "handoff", "self-organized", "routing", "no base station"],
+      "page_ids": [13, 14],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What are the different types of wireless link characteristics?",
+      "answer": ["signal strength", "interference", "multipath propagation", "SNR", "BER", "hidden terminal problem"],
+      "page_ids": [17, 21, 22],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What challenges arise due to multipath propagation in wireless networks?",
+      "answer": ["signal bounce", "interference", "self-interference", "constructive interference", "destructive interference"],
+      "page_ids": [18],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What does the IEEE 802.11 standard define?",
+      "answer": ["data rate", "range", "frequency", "CSMA/CA", "ad-hoc", "infrastructure"],
+      "page_ids": [24],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "How does an 802.11 host associate with an access point?",
+      "answer": ["beacon frames", "SSID", "MAC address", "authentication", "DHCP"],
+      "page_ids": [26],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What is the purpose of RTS and CTS frames in 802.11?",
+      "answer": ["reservation", "avoid collisions", "clear-to-send", "hidden terminal", "request-to-send"],
+      "page_ids": [31, 32, 33],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "How does the CSMA/CA protocol work in IEEE 802.11?",
+      "answer": ["sense channel", "DIFS", "random backoff", "ACK", "SIFS"],
+      "page_ids": [30],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "How does rate adaptation work in IEEE 802.11 networks?",
+      "answer": ["SNR", "BER", "transmission rate", "QAM256", "BPSK"],
+      "page_ids": [37],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What are the correct message sequences in the CSMA/CA reservation process?",
+      "answer": ["RTS", "CTS", "DATA", "ACK"],
+      "page_ids": [38],
+      "source": "Week9_Wireless Networks.pdf"
+    },
+    {
+      "question": "What are the primary goals of network security?",
+      "answer": ["confidentiality", "authentication", "message", "integrity", "access", "availability"],
+      "page_ids": [3, 5],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What symmetric encryption algorithms are mentioned and what are their key characteristics?",
+      "answer": ["DES uses 56-bit key and 64-bit plaintext input", "AES replaced DES with 128, 192, or 256 bit keys", "AES processes data in 128 bit blocks", "3DES encrypts 3 times with 3 different keys"],
+      "page_ids": [22, 24],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What are some common actions an attacker can perform on a network?",
+      "answer": ["eavesdrop", "impersonation", "hijacking", "insert", "messages", "denial", "of", "service"],
+      "page_ids": [8],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "How does the Caesar cipher encryption scheme work?",
+      "answer": ["shift", "letters", "three", "positions", "mod", "26"],
+      "page_ids": [13],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What distinguishes stream ciphers from block ciphers?",
+      "answer": ["bitwise", "encryption", "stream", "cipher", "block", "unit", "encryption", "block", "cipher"],
+      "page_ids": [17],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What is the main idea behind public key cryptography?",
+      "answer": ["public", "key", "shared", "private", "key", "secret", "asymmetric", "encryption"],
+      "page_ids": [30, 31],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "How are RSA public and private keys generated?",
+      "answer": ["prime", "numbers", "modulus", "n", "relatively", "prime", "exponent", "totient"],
+      "page_ids": [35],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What is a digital signature and how does it provide message integrity?",
+      "answer": ["encrypt", "hash", "private", "key", "verify", "public", "key", "nonrepudiation"],
+      "page_ids": [58, 59],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "What is the role of a Certification Authority (CA) in a Public Key Infrastructure?",
+      "answer": ["bind", "identity", "public", "key", "certificate", "signed", "trusted"],
+      "page_ids": [67, 68],
+      "source": "Week10_Network Security.pdf"
+    },
+    {
+      "question": "How does PGP ensure secure email communication?",
+      "answer": ["encryption", "digital", "signature", "MD5", "SHA", "CAST", "RSA"],
+      "page_ids": [78],
+      "source": "Week10_Network Security.pdf"
+    }
+  ]
+}

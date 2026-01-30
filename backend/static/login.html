@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Register - TutorNet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+  <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
+    <h3 class="text-center mb-3" id="form-title">Login to TutorNet</h3>
+
+    <!-- Login form -->
+    <form id="login-form">
+      <div class="mb-3">
+        <input type="email" class="form-control" id="login-email" placeholder="Email" required />
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="login-password" placeholder="Password" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <!-- Register form -->
+    <form id="register-form" style="display: none;">
+      <div class="mb-3">
+        <input type="email" class="form-control" id="reg-email" placeholder="Email" required />
+      </div>
+      <div class="mb-3 d-flex">
+        <input type="text" class="form-control me-2" id="reg-code" placeholder="Verification Code" required />
+        <button type="button" class="btn btn-outline-secondary" id="send-code-btn">Send Code</button>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="reg-password" placeholder="Password" required />
+      </div>
+      <button type="submit" class="btn btn-success w-100">Register</button>
+    </form>
+
+    <div id="error-msg" class="text-danger text-center mt-2" style="display: none;"></div>
+    <div id="success-msg" class="text-success text-center mt-2" style="display: none;"></div>
+
+    <div class="text-center mt-3">
+      <a href="#" id="toggle-mode">Don't have an account? Register here</a>
+    </div>
+  </div>
+
+  <script>
+    const toggleLink = document.getElementById("toggle-mode");
+    const formTitle = document.getElementById("form-title");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const errorMsg = document.getElementById("error-msg");
+    const successMsg = document.getElementById("success-msg");
+
+    toggleLink.addEventListener("click", () => {
+      const isLogin = loginForm.style.display !== "none";
+      loginForm.style.display = isLogin ? "none" : "block";
+      registerForm.style.display = isLogin ? "block" : "none";
+      formTitle.innerText = isLogin ? "Register for LiveTalking" : "Login to LiveTalking";
+      toggleLink.innerText = isLogin ? "Already have an account? Go back to login" : "Don't have an account? Register here";
+      errorMsg.style.display = "none";
+      successMsg.style.display = "none";
+    });
+
+    // Login submit
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorMsg.style.display = "none";
+
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "http://160.250.71.211:37647/dashboard.html";
+      } else {
+        errorMsg.innerText = data.msg || "Login failed";
+        errorMsg.style.display = "block";
+      }
+    });
+
+    // Register submit
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorMsg.style.display = "none";
+      successMsg.style.display = "none";
+
+      const email = document.getElementById("reg-email").value;
+      const password = document.getElementById("reg-password").value;
+      const code = document.getElementById("reg-code").value;
+      const role = "student"; // fixed
+
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, code, role })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        successMsg.innerText = "Registration successful! Please return to login.";
+        successMsg.style.display = "block";
+      } else {
+        errorMsg.innerText = data.msg || "Registration failed";
+        errorMsg.style.display = "block";
+      }
+    });
+
+    // Send verification code
+    document.getElementById("send-code-btn").addEventListener("click", async () => {
+      const email = document.getElementById("reg-email").value.trim();
+      if (!email) {
+        errorMsg.innerText = "Please enter your email before requesting the code.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      const res = await fetch("/api/send_verification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, purpose: "register" })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        successMsg.innerText = "Verification code sent.";
+        successMsg.style.display = "block";
+        errorMsg.style.display = "none";
+      } else {
+        errorMsg.innerText = data.msg || "Failed to send code.";
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

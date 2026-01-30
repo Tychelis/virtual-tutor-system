@@ -1,0 +1,68 @@
+[NeMo I 2025-07-29 12:15:11 cloud:58] Found existing object /home/chengxin/.cache/torch/NeMo/NeMo_2.4.0/vits_ljspeech_fp16_full/aafc8db3ad2124ec6f77d4d20f3fddaf/vits_ljspeech_fp16_full.nemo.
+[NeMo I 2025-07-29 12:15:11 cloud:64] Re-using file from: /home/chengxin/.cache/torch/NeMo/NeMo_2.4.0/vits_ljspeech_fp16_full/aafc8db3ad2124ec6f77d4d20f3fddaf/vits_ljspeech_fp16_full.nemo
+[NeMo I 2025-07-29 12:15:11 common:884] Instantiating model from pre-trained checkpoint
+[NeMo I 2025-07-29 12:15:26 features:305] PADDING: 1
+[NeMo I 2025-07-29 12:15:26 features:314] STFT using exact pad
+[NeMo I 2025-07-29 12:15:28 save_restore_connector:282] Model VitsModel was successfully restored from /home/chengxin/.cache/torch/NeMo/NeMo_2.4.0/vits_ljspeech_fp16_full/aafc8db3ad2124ec6f77d4d20f3fddaf/vits_ljspeech_fp16_full.nemo.
+
+>>> Round 1
+>>> Generated -> output_1.wav
+Audio duration: 5.5960 seconds.
+Audio generation took 0.5244 seconds.
+>>> Audio RTF: 0.0937
+
+>>> Round 2
+>>> Generated -> output_2.wav
+Audio duration: 5.7353 seconds.
+Audio generation took 0.2562 seconds.
+>>> Audio RTF: 0.0447
+
+>>> Round 3
+>>> Generated -> output_3.wav
+Audio duration: 5.8282 seconds.
+Audio generation took 0.2763 seconds.
+>>> Audio RTF: 0.0474
+
+>>> Round 4
+>>> Generated -> output_4.wav
+Audio duration: 4.8065 seconds.
+Audio generation took 0.0587 seconds.
+>>> Audio RTF: 0.0122
+
+>>> Round 5
+>>> Generated -> output_5.wav
+Audio duration: 5.7469 seconds.
+Audio generation took 0.0569 seconds.
+>>> Audio RTF: 0.0099
+
+>>> Round 6
+>>> Generated -> output_6.wav
+Audio duration: 5.5263 seconds.
+Audio generation took 0.0571 seconds.
+>>> Audio RTF: 0.0103
+
+>>> Round 7
+>>> Generated -> output_7.wav
+Audio duration: 5.6889 seconds.
+Audio generation took 0.0530 seconds.
+>>> Audio RTF: 0.0093
+
+>>> Round 8
+>>> Generated -> output_8.wav
+Audio duration: 5.6308 seconds.
+Audio generation took 0.0526 seconds.
+>>> Audio RTF: 0.0093
+
+>>> Round 9
+>>> Generated -> output_9.wav
+Audio duration: 5.1084 seconds.
+Audio generation took 0.0530 seconds.
+>>> Audio RTF: 0.0104
+
+>>> Round 10
+>>> Generated -> output_10.wav
+Audio duration: 5.3870 seconds.
+Audio generation took 0.0618 seconds.
+>>> Audio RTF: 0.0115
+
+Average RTF over 10 runs: 0.0259

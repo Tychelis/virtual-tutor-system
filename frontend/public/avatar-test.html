@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avatar唇形同步测试</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        video {
+            width: 640px;
+            height: 480px;
+            background: black;
+            border-radius: 10px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        input, textarea, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        textarea {
+            width: 500px;
+            height: 100px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        #status {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #ff6b6b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Avatar 唇形同步测试</h1>
+        
+        <video id="video" autoplay playsinline></video>
+        
+        <div class="controls">
+            <button id="connectBtn" onclick="connect()">连接Avatar</button>
+            <button id="disconnectBtn" onclick="disconnect()" disabled>断开</button>
+            
+            <div id="status">等待连接...</div>
+            
+            <div id="chatPanel" style="display:none;">
+                <h3>让Avatar说话：</h3>
+                <textarea id="textInput" placeholder="输入要说的话..."></textarea>
+                <br>
+                <button onclick="speak()">🗣 Echo模式（直接说）</button>
+                <button onclick="chat()">💬 Chat模式（LLM回复）</button>
+                <button onclick="interrupt()">⏸ 停止说话</button>
+            </div>
+        </div>
+        
+        <div id="log" style="margin-top:20px; font-family:monospace; font-size:12px;"></div>
+    </div>
+    
+    <script>
+        let pc = null;
+        let sessionid = null;
+        const video = document.getElementById('video');
+        const status = document.getElementById('status');
+        const logDiv = document.getElementById('log');
+        
+        function log(msg, isError = false) {
+            const time = new Date().toLocaleTimeString();
+            const p = document.createElement('div');
+            p.textContent = `[${time}] ${msg}`;
+            p.className = isError ? 'error' : 'success';
+            logDiv.appendChild(p);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        async function connect() {
+            try {
+                status.textContent = '正在连接...';
+                log('开始连接...');
+                
+                const config = {
+                    sdpSemantics: 'unified-plan',
+                    iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }]
+                };
+                
+                pc = new RTCPeerConnection(config);
+                pc.addTransceiver('video', { direction: 'recvonly' });
+                pc.addTransceiver('audio', { direction: 'recvonly' });
+                
+                pc.addEventListener('track', (evt) => {
+                    log(`收到${evt.track.kind} track`);
+                    if (evt.track.kind === 'video') {
+                        video.srcObject = evt.streams[0];
+                    }
+                });
+                
+                await pc.setLocalDescription(await pc.createOffer());
+                await new Promise((resolve) => {
+                    if (pc.iceGatheringState === 'complete') {
+                        resolve();
+                    } else {
+                        pc.addEventListener('icegatheringstatechange', () => {
+                            if (pc.iceGatheringState === 'complete') resolve();
+                        });
+                    }
+                });
+                
+                const offer = pc.localDescription;
+                const webrtcUrl = `http://${window.location.hostname}:8615`;
+                
+                log(`发送offer到: ${webrtcUrl}/offer`);
+                const response = await fetch(`${webrtcUrl}/offer`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sdp: offer.sdp, type: offer.type })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`服务器错误: ${response.status}`);
+                }
+                
+                const answer = await response.json();
+                sessionid = answer.sessionid;
+                log(`✅ 连接成功! SessionID: ${sessionid}`);
+                
+                await pc.setRemoteDescription(answer);
+                
+                status.textContent = `✅ 已连接 (SessionID: ${sessionid})`;
+                document.getElementById('connectBtn').disabled = true;
+                document.getElementById('disconnectBtn').disabled = false;
+                document.getElementById('chatPanel').style.display = 'block';
+                
+            } catch (error) {
+                log(`❌ 连接失败: ${error.message}`, true);
+                status.textContent = `❌ 连接失败: ${error.message}`;
+            }
+        }
+        
+        function disconnect() {
+            if (pc) {
+                pc.close();
+                pc = null;
+            }
+            video.srcObject = null;
+            sessionid = null;
+            status.textContent = '已断开';
+            document.getElementById('connectBtn').disabled = false;
+            document.getElementById('disconnectBtn').disabled = true;
+            document.getElementById('chatPanel').style.display = 'none';
+            log('已断开连接');
+        }
+        
+        async function speak() {
+            const text = document.getElementById('textInput').value;
+            if (!text || !sessionid) return;
+            
+            try {
+                const webrtcUrl = `http://${window.location.hostname}:8615`;
+                const response = await fetch(`${webrtcUrl}/human`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sessionid: sessionid,
+                        type: 'echo',
+                        text: text
+                    })
+                });
+                
+                const result = await response.json();
+                if (result.code === 0) {
+                    log(`✅ 发送文本: "${text}"`);
+                } else {
+                    log(`❌ 发送失败: ${result.msg}`, true);
+                }
+            } catch (error) {
+                log(`❌ 错误: ${error.message}`, true);
+            }
+        }
+        
+        async function chat() {
+            const text = document.getElementById('textInput').value;
+            if (!text || !sessionid) return;
+            
+            try {
+                const webrtcUrl = `http://${window.location.hostname}:8615`;
+                const response = await fetch(`${webrtcUrl}/human`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sessionid: sessionid,
+                        type: 'chat',
+                        text: text
+                    })
+                });
+                
+                const result = await response.json();
+                if (result.code === 0) {
+                    log(`💬 发送到LLM: "${text}"`);
+                } else {
+                    log(`❌ 发送失败: ${result.msg}`, true);
+                }
+            } catch (error) {
+                log(`❌ 错误: ${error.message}`, true);
+            }
+        }
+        
+        async function interrupt() {
+            if (!sessionid) return;
+            
+            try {
+                const webrtcUrl = `http://${window.location.hostname}:8615`;
+                const response = await fetch(`${webrtcUrl}/interrupt_talk`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sessionid: sessionid })
+                });
+                
+                const result = await response.json();
+                if (result.code === 0) {
+                    log('⏸ 已停止说话');
+                }
+            } catch (error) {
+                log(`❌ 错误: ${error.message}`, true);
+            }
+        }
+    </script>
+</body>
+</html>

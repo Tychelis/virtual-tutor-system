@@ -1,0 +1,71 @@
+{
+  "cosyvoice": {
+    "full_name": "CosyVoice2",
+    "clone": true,
+    "license": "MIT",
+    "env_path": "/workspace/conda/envs/edge",
+    "server_path": "/workspace/murphy/capstone-project-25t3-9900-virtual-tutor-phase-2/tts/cosyvoice/CosyVoice/server.py",
+    "status": "active",
+    "timbres": [],
+    "cur_timbre": ""
+  },
+  "edgeTTS": {
+    "full_name": "edgeTTS",
+    "clone": false,
+    "license": "MIT",
+    "env_path": "/workspace/conda/envs/edge",
+    "server_path": "/workspace/murphy/capstone-project-25t3-9900-virtual-tutor-phase-2/tts/edge/server.py",
+    "status": "active",
+    "timbres": [
+      "Default",
+      "MaleA",
+      "MaleB",
+      "MaleC",
+      "MaleD",
+      "MaleE",
+      "MaleF",
+      "FemaleA",
+      "FemaleB",
+      "FemaleC",
+      "FemaleD",
+      "FemaleE",
+      "FemaleF",
+      "ChineseMaleA",
+      "ChineseMaleB",
+      "ChineseMaleC",
+      "ChineseFemaleA",
+      "ChineseFemaleB"
+    ],
+    "cur_timbre": "FemaleA",
+    "entry": "edge/server.py",
+    "port": 5033
+  },
+  "tacotron": {
+    "full_name": "TacoTron2",
+    "clone": false,
+    "license": "MIT",
+    "env_path": "/workspace/conda/envs/edge",
+    "server_path": "/workspace/murphy/capstone-project-25t3-9900-virtual-tutor-phase-2/tts/taco/server.py",
+    "status": "active",
+    "timbres": [
+      "Default",
+      "MaleA",
+      "MaleB",
+      "FemaleA",
+      "FemaleB"
+    ],
+    "cur_timbre": "Default"
+  },
+  "sovits": {
+    "full_name": "GPT-SoViTs",
+    "clone": true,
+    "license": "MIT",
+    "env_path": "/workspace/conda/envs/edge",
+    "server_path": "/workspace/murphy/capstone-project-25t3-9900-virtual-tutor-phase-2/tts/sovits/GPT-SoVITS/server.py",
+    "status": "active",
+    "timbres": [
+      "The course name COMP9331 is simply compained 3331."
+    ],
+    "cur_timbre": "The course name COMP9331 is simply compained 3331."
+  }
+}

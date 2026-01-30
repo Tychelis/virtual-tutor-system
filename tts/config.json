@@ -1,0 +1,7 @@
+{
+    "tts_server_port": 8604,
+    "tts_server_use_gpu": true,
+    "current_tts_server": "edgeTTS",
+    "tts_server_pid": 114535,
+    "tts_timbre": "FemaleA"
+}

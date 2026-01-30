@@ -1,0 +1,12 @@
+tmpdir_tts/
+tmpdir_vocoder/
+
+logs/*
+!logs/
+!logs/taco_rtf
+
+output/*
+!output/
+!output/demo_output.wav
+
+

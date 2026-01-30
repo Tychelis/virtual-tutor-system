@@ -1,0 +1,20 @@
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+
+# 忽略 output 目录中的所有内容
+output/*
+!output/
+# 保留特定文件
+!output/sovits.mp3
+
+# 忽略 logs 目录中的所有内容
+logs/*
+!logs/
+# 保留特定文件
+!logs/rtf_sovits.txt
+
+GPT-SoVITS/
+!GPT-SoVITS/
+# 保留特定文件
+!GPT-SoVITS/server.py

@@ -1,0 +1,47 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# SQLite DB or local data
+*.sqlite3
+*.db
+
+# Environment variable files
+.env
+.env.*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# macOS
+.DS_Store
+
+# Log files
+*.log
+
+# Distribution files
+dist/
+build/
+*.egg-info/
+
+# Coverage reports
+htmlcov/
+.coverage
+.cache
+
+*.swp
+

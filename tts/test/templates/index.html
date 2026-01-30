@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TTS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 40px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 300px;
+            padding: 6px;
+            margin-bottom: 15px;
+        }
+
+        button,
+        input[type="submit"] {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #eee;
+            padding: 10px;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+    <script>
+        let modelData = {};
+
+        async function loadModels() {
+            const res = await fetch('/tts/models');
+            const data = await res.json();
+
+            const modelSelects = [
+                document.getElementById('model_name'),
+                document.getElementById('model_name_timbre')
+            ];
+
+            const timbreSelect = document.getElementById('timbre');
+
+            if (data.models) {
+                modelData = {};
+                data.models.forEach(model => {
+                    modelData[model.model_name] = model;
+
+                    modelSelects.forEach(select => {
+                        const option = document.createElement('option');
+                        option.value = model.model_name;
+                        option.text = model.model_name;
+                        select.appendChild(option);
+                    });
+                });
+
+                document.getElementById('model_name_timbre').addEventListener('change', function() {
+                    const selectedModel = this.value;
+                    const timbres = modelData[selectedModel]?.timbres || [];
+
+                    timbreSelect.innerHTML = "";
+                    timbres.forEach(timbre => {
+                        const option = document.createElement('option');
+                        option.value = timbre;
+                        option.text = timbre;
+                        timbreSelect.appendChild(option);
+                    });
+
+                    const cur = modelData[selectedModel]?.cur_timbre;
+                    if (cur && timbres.includes(cur)) {
+                        timbreSelect.value = cur;
+                    }
+                });
+            }
+        }
+
+        async function switchAvatar(event) {
+            event.preventDefault();
+
+            const avatarId = document.getElementById("avatar_id").value;
+            const refFile = document.getElementById("ref_file").value;
+            const resultDiv = document.getElementById("switch_avatar_result");
+
+            if (!avatarId || !refFile) {
+                resultDiv.innerText = "请输入 avatar_id 和 ref_file";
+                return;
+            }
+
+            try {
+                const res = await fetch(`/switch_avatar?avatar_id=${encodeURIComponent(avatarId)}&ref_file=${encodeURIComponent(refFile)}`, {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                resultDiv.innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultDiv.innerText = "请求失败: " + error;
+            }
+        }
+
+        window.onload = loadModels;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Start TTS</h2>
+        <form action="/submit" method="post">
+            <label for="model_name">Model name:</label>
+            <select id="model_name" name="model_name"></select><br>
+
+            <label for="port">Port:</label>
+            <input type="number" id="port" name="port" value="5033"><br>
+
+            <label for="use_gpu">Use GPU:</label>
+            <select id="use_gpu" name="use_gpu">
+                <option value="true" selected>yes</option>
+                <option value="false">no</option>
+            </select><br>
+
+            <input type="submit" value="Start">
+        </form>
+
+        <h2>Choose Timbre</h2>
+        <form method="post" action="/tts/choose_timbre">
+            <label for="model_name_timbre">Model name:</label>
+            <select id="model_name_timbre" name="model_name"></select><br>
+
+            <label for="timbre">Timbre:</label>
+            <select id="timbre" name="timbre"></select><br>
+
+            <button type="submit">Choose Timbre</button>
+        </form>
+
+        <h2>Switch Avatar</h2>
+        <form onsubmit="switchAvatar(event)">
+            <label for="avatar_id">Avatar ID:</label>
+            <input type="text" id="avatar_id" name="avatar_id" value="avator_1"><br>
+
+            <label for="ref_file">Reference Audio Path:</label>
+            <input type="text" id="ref_file" name="ref_file" value="data/audio/ref_liu.wav"><br>
+
+            <button type="submit">Switch Avatar</button>
+        </form>
+
+        <pre id="switch_avatar_result"></pre>
+
+        {% if result %}
+            <h3>Return:</h3>
+            <pre>{{ result | tojson(indent=2) }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>

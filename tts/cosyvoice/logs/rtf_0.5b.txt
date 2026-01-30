@@ -1,0 +1,61 @@
+failed to import ttsfrd, use wetext instead
+>>> Python executable: /home/chengxin/workspace/chengxin/conda/envs/cosyvoice2/bin/python
+>>> Initializing CosyVoice2 model...
+Downloading Model to directory: /home/chengxin/.cache/modelscope/hub/pengzhendong/wetext
+Downloading Model to directory: /home/chengxin/.cache/modelscope/hub/pengzhendong/wetext
+>>> Model loaded from pretrained_models/CosyVoice2-0.5B!
+
+>>> Round 1/10: Generating TTS output...
+>>> Duration: 4.5600 s | Time taken: 3.0902 s
+>>> RTF for round 1: 0.6777
+
+>>> Round 2/10: Generating TTS output...
+>>> Duration: 6.2800 s | Time taken: 2.3859 s
+>>> RTF for round 2: 0.3799
+
+>>> Round 3/10: Generating TTS output...
+>>> Duration: 4.9600 s | Time taken: 1.9509 s
+>>> RTF for round 3: 0.3933
+
+>>> Round 4/10: Generating TTS output...
+>>> Duration: 6.2400 s | Time taken: 2.3434 s
+>>> RTF for round 4: 0.3755
+
+>>> Round 5/10: Generating TTS output...
+>>> Duration: 4.5600 s | Time taken: 1.6811 s
+>>> RTF for round 5: 0.3687
+
+>>> Round 6/10: Generating TTS output...
+>>> Duration: 5.3600 s | Time taken: 1.9973 s
+>>> RTF for round 6: 0.3726
+
+>>> Round 7/10: Generating TTS output...
+>>> Duration: 5.0000 s | Time taken: 2.0003 s
+>>> RTF for round 7: 0.4001
+
+>>> Round 8/10: Generating TTS output...
+>>> Duration: 5.2800 s | Time taken: 1.9853 s
+>>> RTF for round 8: 0.3760
+
+>>> Round 9/10: Generating TTS output...
+>>> Duration: 5.7600 s | Time taken: 2.2055 s
+>>> RTF for round 9: 0.3829
+
+>>> Round 10/10: Generating TTS output...
+>>> Duration: 5.8400 s | Time taken: 2.2406 s
+>>> RTF for round 10: 0.3837
+
+=============== Summary ===============
+
+>>> RTF of round 1: 0.6777
+>>> RTF of round 2: 0.3799
+>>> RTF of round 3: 0.3933
+>>> RTF of round 4: 0.3755
+>>> RTF of round 5: 0.3687
+>>> RTF of round 6: 0.3726
+>>> RTF of round 7: 0.4001
+>>> RTF of round 8: 0.3760
+>>> RTF of round 9: 0.3829
+>>> RTF of round 10: 0.3837
+
+>>> Average RTF over 10 rounds: 0.4110

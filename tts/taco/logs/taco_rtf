@@ -1,0 +1,63 @@
+>>> Device selected: cuda
+>>> Loading models...
+>>> Models loaded successfully.
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.69 seconds.
+>>> Output duration: 6.19 seconds, RTF: 0.1112
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.32 seconds.
+>>> Output duration: 5.56 seconds, RTF: 0.0578
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.33 seconds.
+>>> Output duration: 6.18 seconds, RTF: 0.0532
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.33 seconds.
+>>> Output duration: 6.15 seconds, RTF: 0.0532
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.28 seconds.
+>>> Output duration: 5.12 seconds, RTF: 0.0539
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.32 seconds.
+>>> Output duration: 5.99 seconds, RTF: 0.0531
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.30 seconds.
+>>> Output duration: 5.55 seconds, RTF: 0.0538
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.28 seconds.
+>>> Output duration: 5.19 seconds, RTF: 0.0540
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.28 seconds.
+>>> Output duration: 5.21 seconds, RTF: 0.0538
+>>> Audio saved to demo_output.wav
+===================================================
+
+>>> Starting speech synthesis...
+>>> Synthesis completed in 0.33 seconds.
+>>> Output duration: 6.09 seconds, RTF: 0.0535
+>>> Audio saved to demo_output.wav
+===================================================
+

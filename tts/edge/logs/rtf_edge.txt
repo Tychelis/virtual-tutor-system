@@ -1,0 +1,53 @@
+>>> Generating TTS for: [Hello, this is TutorNet speaking. what do you need? do you want a cup of coffee?] with voice: en-US-GuyNeural
+>>> Round 1 of TTS generation...
+>>> Output saved to output/edge_tts_round0.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1357
+
+>>> Round 2 of TTS generation...
+>>> Output saved to output/edge_tts_round1.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1373
+
+>>> Round 3 of TTS generation...
+>>> Output saved to output/edge_tts_round2.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1354
+
+>>> Round 4 of TTS generation...
+>>> Output saved to output/edge_tts_round3.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1312
+
+>>> Round 5 of TTS generation...
+>>> Output saved to output/edge_tts_round4.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1265
+
+>>> Round 6 of TTS generation...
+>>> Output saved to output/edge_tts_round5.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1305
+
+>>> Round 7 of TTS generation...
+>>> Output saved to output/edge_tts_round6.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1435
+
+>>> Round 8 of TTS generation...
+>>> Output saved to output/edge_tts_round7.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1219
+
+>>> Round 9 of TTS generation...
+>>> Output saved to output/edge_tts_round8.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1230
+
+>>> Round 10 of TTS generation...
+>>> Output saved to output/edge_tts_round9.mp3
+>>> Audio duration: 7.1040 seconds
+>>> RTF: 0.1368
+
+
+>>> Average RTF over 10 rounds: 0.1322

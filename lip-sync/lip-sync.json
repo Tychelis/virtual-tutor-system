@@ -1,0 +1,25 @@
+{
+  "paths": {
+    "conda_init": "/workspace/conda/etc/profile.d/conda.sh",
+    "conda_env": "/workspace/conda/envs/avatar",
+    "muse_conda_env": "/workspace/conda/envs/MuseTalk",
+    "ffmpeg_path": "/workspace/murphy/MuseTalk/ffmpeg-static/ffmpeg-7.0.2-amd64-static/ffmpeg",
+    "working_directory": "/workspace/murphy/capstone-project-25t3-9900-virtual-tutor-phase-2/lip-sync",
+    "muse_talk_base": "/workspace/murphy/MuseTalk"
+  },
+  "servers": {
+    "tts_server": "http://127.0.0.1:8604",
+    "listenport": 8615,
+    "jina_port": 23004
+  },
+  "app_config": {
+    "max_session": 8
+  },
+  "default_texts": {
+    "ref_text": "hello this is tutorNet speaking, what do you need? do you want a cup of coffee?"
+  },
+  "video_processing": {
+    "bitrate": "3000k",
+    "codec": "libx264"
+  }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC测试 - 独立页面</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        video { width: 640px; height: 480px; background: black; border: 2px solid #333; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; cursor: pointer; }
+        .success { color: green; }
+        .error { color: red; }
+        #log { background: white; padding: 10px; margin-top: 10px; border: 1px solid #ccc; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>🎥 WebRTC Avatar 连接测试</h1>
+    <video id="video" autoplay playsinline></video>
+    <br>
+    <button onclick="testConnection()">🔌 测试连接</button>
+    <button onclick="stopConnection()">⏹ 断开</button>
+    <div id="status"></div>
+    <div id="log"></div>
+    
+    <script>
+        let pc = null;
+        const video = document.getElementById('video');
+        const status = document.getElementById('status');
+        const logDiv = document.getElementById('log');
+        
+        function log(msg, isError = false) {
+            const time = new Date().toLocaleTimeString();
+            const p = document.createElement('p');
+            p.textContent = `[${time}] ${msg}`;
+            p.className = isError ? 'error' : 'success';
+            logDiv.appendChild(p);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        async function testConnection() {
+            try {
+                status.innerHTML = '⏳ 正在连接...';
+                log('开始WebRTC连接测试');
+                
+                const config = {
+                    sdpSemantics: 'unified-plan',
+                    iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }]
+                };
+                
+                pc = new RTCPeerConnection(config);
+                log('创建RTCPeerConnection');
+                
+                pc.addTransceiver('video', { direction: 'recvonly' });
+                pc.addTransceiver('audio', { direction: 'recvonly' });
+                log('添加video和audio transceiver');
+                
+                pc.addEventListener('track', (evt) => {
+                    log(`收到${evt.track.kind} track`);
+                    if (evt.track.kind === 'video') {
+                        video.srcObject = evt.streams[0];
+                    }
+                });
+                
+                await pc.setLocalDescription(await pc.createOffer());
+                log('创建并设置本地SDP offer');
+                
+                await new Promise((resolve) => {
+                    if (pc.iceGatheringState === 'complete') {
+                        resolve();
+                    } else {
+                        pc.addEventListener('icegatheringstatechange', () => {
+                            if (pc.iceGatheringState === 'complete') {
+                                resolve();
+                            }
+                        });
+                    }
+                });
+                log('ICE候选收集完成');
+                
+                const offer = pc.localDescription;
+                const url = `http://${window.location.hostname}:8615/offer`;
+                log(`发送offer到: ${url}`);
+                
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sdp: offer.sdp, type: offer.type })
+                });
+                
+                log(`服务器响应: ${response.status} ${response.statusText}`);
+                
+                if (!response.ok) {
+                    throw new Error(`服务器错误: ${response.status} ${response.statusText}`);
+                }
+                
+                const answer = await response.json();
+                log(`收到answer，SessionID: ${answer.sessionid}`);
+                
+                await pc.setRemoteDescription(answer);
+                log('设置远程SDP answer完成');
+                
+                status.innerHTML = `✅ 连接成功！SessionID: ${answer.sessionid}`;
+                log('WebRTC连接建立成功！');
+                
+            } catch (error) {
+                status.innerHTML = `❌ 错误: ${error.message}`;
+                log(`连接失败: ${error.message}`, true);
+                console.error('详细错误:', error);
+            }
+        }
+        
+        function stopConnection() {
+            if (pc) {
+                pc.close();
+                pc = null;
+                video.srcObject = null;
+                status.innerHTML = '⏹ 已断开';
+                log('连接已断开');
+            }
+        }
+        
+        // 页面加载时显示配置
+        window.onload = () => {
+            const hostname = window.location.hostname;
+            log(`当前hostname: ${hostname}`);
+            log(`WebRTC服务地址: http://${hostname}:8615`);
+            log('请先确保已选择Avatar并等待切换完成');
+        };
+    </script>
+</body>
+</html>

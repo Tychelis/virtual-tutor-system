@@ -1,0 +1,29 @@
+
+>>> Requesting TTS for voice [f0] with text: 
+hello this is Tutornet speaking, what do you need? Do you want a cup of coffee?
+Response time: 2.562903 seconds
+RTF = 0.5711
+
+>>> Requesting TTS for voice [f1] with text: 
+hello this is Tutornet speaking, what do you need? Do you want a cup of coffee?
+Response time: 2.542605 seconds
+RTF = 0.5821
+
+>>> Requesting TTS for voice [f2] with text: 
+hello this is Tutornet speaking, what do you need? Do you want a cup of coffee?
+Response time: 2.550231 seconds
+RTF = 0.5506
+
+>>> Requesting TTS for voice [f3] with text: 
+hello this is Tutornet speaking, what do you need? Do you want a cup of coffee?
+Response time: 2.530358 seconds
+RTF = 0.5638
+
+>>> Requesting TTS for voice [f4] with text: 
+hello this is Tutornet speaking, what do you need? Do you want a cup of coffee?
+Response time: 2.528734 seconds
+RTF = 0.6126
+
+>>> Requesting TTS for voice [m0] with text: 
+hello this is Tutornet speaking, what do you need?
+Response time: 1.127419 seconds

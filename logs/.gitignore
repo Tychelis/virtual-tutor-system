@@ -1,0 +1,13 @@
+# 忽略所有日志文件
+*.log
+
+# 但保留README和备份目录结构
+!README.md
+!.gitignore
+backups/
+*.md
+
+
+
+
+

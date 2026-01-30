@@ -1,0 +1,105 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.env/
+venv/
+env/
+.venv/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Other unnecessary files
+*.bak
+*.swp
+
+# Avatar model files and data
+lip-sync/data/avatars/*/
+lip-sync/models/
+lip-sync/ref_audio/
+lip-sync/*.txt
+lip-sync/*.log
+
+# Backend generated avatars
+backend/static/avatars/*
+!backend/static/avatars/.gitkeep
+
+# TTS files
+tts/tts.wav
+tts.wav
+
+# LLM checkpoints
+llm/checkpoints.db
+
+# Large model files
+*.pth
+*.onnx
+*.zip
+
+
+# Temporary files
+temp_out.wav
+*.lock
+
+# Database files
+*.db
+
+# Environment files
+.env
+
+# Work summary and md folder
+work_sumary/
+md/
+
+# Logs - ignore all log files but keep directory structure with .gitkeep
+logs/*.log
+backend/logs/*.log
+llm/logs/*.log
+rag/logs/*.log
+avatar-manager/logs/*.log
+lip-sync/logs/*.log
+
+# Keep .gitkeep files to preserve directory structure
+!logs/.gitkeep
+!backend/logs/.gitkeep
+!llm/logs/.gitkeep
+!rag/logs/.gitkeep
+!avatar-manager/logs/.gitkeep
+!lip-sync/logs/.gitkeep
+
+# Uploads directory
+uploads/
+backend/uploads/
+!backend/uploads/.gitkeep
+
+# Test tokens
+.test_token
+.jwt_token
+
+# Redis dump
+dump.rdb
+
+# Backup files
+*_BACKUP*
+*_OLD*

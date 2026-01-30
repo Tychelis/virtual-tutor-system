@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>诊断页面</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #00ff00; }
+        .info { margin: 10px 0; padding: 10px; background: #2d2d2d; border-left: 4px solid #00ff00; }
+        .error { border-left-color: #ff0000; color: #ff6b6b; }
+        .success { border-left-color: #00ff00; }
+        button { padding: 10px 20px; margin: 10px 5px; cursor: pointer; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 缓存诊断页面</h1>
+    
+    <div id="results"></div>
+    
+    <button onclick="testFetch()">测试fetch</button>
+    <button onclick="clearAll()">清除所有缓存</button>
+    <button onclick="location.reload(true)">强制重载</button>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function log(msg, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `info ${type}`;
+            div.textContent = msg;
+            results.appendChild(div);
+        }
+        
+        // 显示当前环境信息
+        log('浏览器: ' + navigator.userAgent);
+        log('当前URL: ' + window.location.href);
+        log('Hostname: ' + window.location.hostname);
+        
+        // 检查缓存
+        if ('caches' in window) {
+            caches.keys().then(keys => {
+                log('缓存数量: ' + keys.length + ' - ' + keys.join(', '));
+            });
+        }
+        
+        // 测试WebRTC URL
+        const webrtcUrl = `http://${window.location.hostname}:8615/offer`;
+        log('WebRTC URL: ' + webrtcUrl);
+        
+        async function testFetch() {
+            try {
+                log('正在测试fetch到 ' + webrtcUrl + '...', 'info');
+                const response = await fetch(webrtcUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        sdp: 'v=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0', 
+                        type: 'offer' 
+                    })
+                });
+                
+                log(`✅ 响应状态: ${response.status} ${response.statusText}`, 'success');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log('✅ 收到数据: sessionid=' + data.sessionid, 'success');
+                } else {
+                    const text = await response.text();
+                    log('❌ 错误响应: ' + text, 'error');
+                }
+            } catch (error) {
+                log('❌ Fetch失败: ' + error.message, 'error');
+            }
+        }
+        
+        async function clearAll() {
+            // 清除所有缓存
+            if ('caches' in window) {
+                const keys = await caches.keys();
+                for (const key of keys) {
+                    await caches.delete(key);
+                    log('已删除缓存: ' + key);
+                }
+            }
+            localStorage.clear();
+            sessionStorage.clear();
+            log('✅ 所有存储已清除', 'success');
+        }
+        
+        // 自动运行测试
+        setTimeout(testFetch, 1000);
+    </script>
+</body>
+</html>

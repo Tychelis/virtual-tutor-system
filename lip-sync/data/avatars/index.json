@@ -1,0 +1,42 @@
+[
+  {
+    "id": "test_yongen",
+    "name": "Test Yongen",
+    "ref": "test_yongen/full_imgs/00000000.png"
+  },
+  {
+    "id": "test_two",
+    "name": "Test Two",
+    "ref": "test_two/full_imgs/00000000.png"
+  },
+  {
+    "id": "test 3",
+    "name": "Test 3",
+    "ref": "test 3/full_imgs/00000000.png"
+  },
+  {
+    "id": "test   4",
+    "name": "Test   4",
+    "ref": "test   4/full_imgs/00000000.png"
+  },
+  {
+    "id": "test_one",
+    "name": "Test One",
+    "ref": "test_one/full_imgs/00000000.png"
+  },
+  {
+    "id": "joker",
+    "name": "Joker",
+    "ref": "joker/full_imgs/00000000.png"
+  },
+  {
+    "id": "2",
+    "name": "2",
+    "ref": "2/full_imgs/00000000.png"
+  },
+  {
+    "id": "3",
+    "name": "3",
+    "ref": "3/full_imgs/00000000.png"
+  }
+]
